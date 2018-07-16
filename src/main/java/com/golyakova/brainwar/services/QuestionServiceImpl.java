@@ -21,7 +21,7 @@ public class QuestionServiceImpl implements QuestionService{
 
         for (int i = 0; i < 3; i++) {
             Boolean flag = false;
-            Integer newC = (int)(Math.random() * 5);
+            Integer newC = (int)(Math.random() * 26);
             for (Integer c : count) {
                 if (newC.equals(c)) flag = true;
             }

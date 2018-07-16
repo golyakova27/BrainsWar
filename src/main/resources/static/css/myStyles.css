@@ -15,7 +15,7 @@
 }
 
 body {
-    background: url(../img.jpg) no-repeat;
+    background: url(../pictures/img.jpg) no-repeat;
     background-size: 100%;
 }
 
@@ -36,6 +36,7 @@ body {
 .center {
     margin:0 10% 0 40%;
     width:50%;
+    margin-top: 50px;
 }
 
 .blockPersonalArea1 {
@@ -88,10 +89,10 @@ body {
     font-size: 30px;
     color: black;
     opacity:0.7;
-    /*border-radius: 50px;*/
+    border-radius: 50px;
     background: #e5e3e3;
-    padding-right: 100px;
-    padding-left: 100px;
+    margin-right: 200px;
+    margin-left: 200px;
 }
 
 .buttonSelectMenu {

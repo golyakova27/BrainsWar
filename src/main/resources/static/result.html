@@ -1,11 +1,13 @@
-<div ng-controller="resultCtrl">
-    <h1>Вы заработали {{answerpointdata}} поинтов!</h1>
-    <h2>Ваши результаты:</h2>
-    <table>
-        <tr ng-repeat="i in [0, 1, 2]">
-            <td>{{object[i].question}} - </td>
-            <td>{{answerdata[i]}}</td>
-        </tr>
-    </table>
-    <button ng-click="sendResultOfGame()">Вернуться на основную страницу</button>
-</div>
+<form class="well panel myform">
+    <div ng-controller="resultCtrl">
+        <h1>Вы заработали {{answerpointdata}} очков!</h1>
+        <h2>Ваши результаты:</h2>
+        <table class="space">
+            <tr ng-repeat="i in [0, 1, 2]">
+                <td>{{object[i].question}} - {{answerdata[i]}}</td>
+            </tr>
+        </table>
+        <button class="btn btn-info" ng-click="sendResultOfGame()">Вернуться на основную страницу</button>
+    </div>
+</form>
+

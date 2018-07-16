@@ -1,24 +1,12 @@
 <div ng-controller="gameCtrl">
-    <h1>Игра началась</h1>
-    {{counter}}
-    <h2>{{object[i].question}}</h2>
-    <table>
-        <tr>
-        <td>
-            <button ng-click="giveAnswer(1)">{{object[i].answer1}}</button>
-        </td>
-        <td>
-            <button ng-click="giveAnswer(2)">{{object[i].answer2}}</button>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <button ng-click="giveAnswer(3)">{{object[i].answer3}}</button>
-        </td>
-        <td>
-            <button ng-click="giveAnswer(4)">{{object[i].answer4}}</button>
-        </td>
-    </tr>
+    <h1 class="textSelectMenu">Игра началась</h1>
+    <div class="gameClock">Время :  {{counter}}</div>
+    <h2 class="gameQuestion">{{object[i].question}}</h2>
 
-    </table>
+    <form class="width">
+        <button class="btn btn-lg btn-block btn-success" ng-click="giveAnswer(1)">{{object[i].answer1}}</button>
+        <button class="btn btn-lg btn-block btn-success" ng-click="giveAnswer(2)">{{object[i].answer2}}</button>
+        <button class="btn btn-lg btn-block btn-success" ng-click="giveAnswer(3)">{{object[i].answer3}}</button>
+        <button class="btn btn-lg btn-block btn-success" ng-click="giveAnswer(4)">{{object[i].answer4}}</button>
+    </form>
 </div>
