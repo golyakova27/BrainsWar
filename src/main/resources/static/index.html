@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="GameApp">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+    <title>Brain War</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="js/sockjs.js"></script>
+    <script src="js/stomp.js"></script>
+    <script src="js/gameService.js"></script>
+    <link  href="css/bootstrap.css" rel="stylesheet">
+    <link  href="css/bootstrap-theme.css" rel="stylesheet">
+    <link  href="css/myStyles.css" rel="stylesheet">
+
+</head>
+<body>
+<div ng-controller="mainCtrl">
+
+    <div class="textCenter">
+        <w class="mozgoboy1">Мозго</w><w class="mozgoboy2">бой</w>
+    </div>
+
+    <ng-include src="url1"></ng-include>
+
+</div>
+</body>
+</html>

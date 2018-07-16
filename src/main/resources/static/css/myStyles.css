@@ -1,0 +1,110 @@
+.textCenterForm {
+    generic-family: Serif;
+    font-weight: bold;
+    font-style: oblique;
+    text-align: center;
+    color: #337ab7;
+}
+
+.textForm {
+    color: #090564;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+body {
+    background: url(../img.jpg) no-repeat;
+    background-size: 100%;
+}
+
+.mozgoboy1 {
+    text-align: center;
+    font-family: 'Arimo', sans-serif;
+    font-size: 100px;
+    color: #d3e0e3;
+}
+
+.mozgoboy2 {
+    text-align: center;
+    font-family: 'Arimo', sans-serif;
+    font-size: 100px;
+    color: #d7f3f9;
+}
+
+.center {
+    margin:0 10% 0 40%;
+    width:50%;
+}
+
+.blockPersonalArea1 {
+    opacity:0.7;
+    border-radius: 10px;
+    background: #e5e3e3;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.blockPersonalArea2 {
+    opacity:0.7;
+    border-radius: 10px;
+    background: #e5e3e3;
+    margin-left: 330px;
+    width: 60%;
+}
+
+.textPersonalArea {
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+}
+
+.textPersonalAreaBest {
+    text-align: center;
+    color: #f9f9f9;
+    font-weight: bold;
+}
+
+.textPointPersonalArea {
+    color: #2a3c71;
+}
+
+.buttonGame {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.textPersonalAreaHeader {
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+}
+
+.textSelectMenu {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    opacity:0.7;
+    /*border-radius: 50px;*/
+    background: #e5e3e3;
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+.buttonSelectMenu {
+    font-size: 30px;
+    margin-inside: 10;
+}
+
+.forpicture {
+    margin-left: 570px;
+    margin-right: -400px;
+}
+
+.changeHeigth {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

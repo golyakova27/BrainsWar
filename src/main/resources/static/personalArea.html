@@ -1,0 +1,25 @@
+<div>
+    <form class="textPersonalArea blockPersonalArea1">
+        <h1 class="textPersonalArea">Привет, {{info.nickname}}!</h1>
+        <h2 class="textPersonalArea">На данный момент вы имеете <w class="textPointPersonalArea">{{info.points}}</w> поинтов,</h2>
+        <h2 class="textPersonalArea">играйте больше и побеждайте, чтобы увеличить их количество.</h2>
+    </form>
+
+    <div class="textCenter">
+        <button type="submit" ng-click="showSelectMenu()" class="btn btn-default buttonGame">Одиночная игра</button>
+        <button type="submit" class="btn btn-default buttonGame">Найти соперника</button>
+    </div>
+    <h1 class="textPersonalAreaBest">Лучшие игроки</h1>
+    <table class="table table-striped textPersonalArea blockPersonalArea2">
+        <thead class="textPersonalAreaHeader">
+        <tr>
+            <th class="textCenter">Имя</th>
+            <th class="textCenter">Количество поинтов</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="object in info.ratings">
+            <td>{{object.userName}}</td>
+            <td>{{object.points}}</td>
+        </tr>
+    </table>
+</div>

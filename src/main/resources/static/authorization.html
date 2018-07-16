@@ -1,0 +1,10 @@
+<div ng-controller="LoginSignupCtrl" class="container center" style="margin-top:10px;">
+    <div class="btn-group">
+
+        <!-- При нажатии на кнопки меняется значение свойсва url, при этом происходит загрузка нового фрагмента, который отображается в ng-include -->
+        <button class="btn btn-info" ng-click="showLogin()">Вход</button>
+        <button class="btn btn-info" ng-click="showSignup()">Регистрация</button>
+    </div>
+
+    <ng-include src="url2"></ng-include>
+</div>

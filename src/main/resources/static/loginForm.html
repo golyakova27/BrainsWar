@@ -1,0 +1,22 @@
+﻿<div class="panel" style="width:300px" ng-controller="loginServiceCtrl">
+    <form name="myForm" >
+        <div class="well">
+
+            <h3 class="textCenterForm">Вход:</h3>
+
+            <div class="form-group">
+                <label class="textForm">E-mail:</label>
+                <input id="email" name="userEmail" type="email" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label class="textForm">Пароль:</label>
+                <input id="password" name="userName" type="password" class="form-control">
+            </div>
+
+            <button type="submit" ng-click="sendRequest()" class="btn btn-primary btn-block">
+                Войти
+            </button>
+        </div>
+    </form>
+</div>
