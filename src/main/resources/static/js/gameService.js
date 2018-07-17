@@ -8,6 +8,36 @@ app.controller("mainCtrl", function ($scope) {
     $scope.resultarea = "result.html";
     $scope.url1 = $scope.authoriz;
 
+
+    ////////////////////// for sockets
+
+    var socket;
+    var client;
+
+    $scope.connect = function () {
+        socket = new SockJS('/brainWar');
+        client = Stomp.over(socket);
+        client.connect({}, function(frame) {
+            console.log('Connected: ' + frame);
+            client.subscribe('/topic/response', function(message){
+                console.log(JSON.parse(message.body).content);
+            });
+        });
+    };
+
+    $scope.sendInfo = function() {
+        //client.send("/app/questions", {}, JSON.stringify({ 'email': $scope.email, 'login' : $scope.info.nickname }));
+        //client.send("/app/take", {}, JSON.stringify({ 'email': $scope.email, 'login' : $scope.info.nickname }));
+    };
+
+    $scope.disconnect = function() {
+        client.disconnect();
+        console.log("Disconnected");
+    };
+
+    //////////////////////
+
+
     $scope.showAuthorization = function () {
         $scope.url1 = $scope.authoriz;
     };
