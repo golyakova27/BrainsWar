@@ -1,11 +1,12 @@
 package com.golyakova.brainwar.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "questions")
-public class Question implements IQuestion {
-
+@Table(name = "questionsart")
+public class Questionart implements IQuestion {
     @Id
     private Long id;
     private String question;
@@ -15,7 +16,7 @@ public class Question implements IQuestion {
     private String answer4;
     private String trueanswer;
 
-    public Question() {
+    public Questionart() {
 
     }
 
@@ -45,16 +46,5 @@ public class Question implements IQuestion {
 
     public String getTrueanswer() {
         return trueanswer;
-    }
-
-    @Override
-    public String toString() {
-        return "question{" +
-                question + " \n" +
-                answer1 + " \n" +
-                answer2 + " \n" +
-                answer3 + " \n" +
-                answer4 + " \n" +
-                trueanswer + "}";
     }
 }

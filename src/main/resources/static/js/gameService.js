@@ -26,7 +26,7 @@ app.controller("mainCtrl", function ($scope) {
     };
 
     $scope.sendInfo = function() {
-        //client.send("/app/questions", {}, JSON.stringify({ 'email': $scope.email, 'login' : $scope.info.nickname }));
+        client.send("/app/questions", {}, JSON.stringify({ 'email': $scope.email, 'login' : $scope.info.nickname }));
         //client.send("/app/take", {}, JSON.stringify({ 'email': $scope.email, 'login' : $scope.info.nickname }));
     };
 
@@ -93,6 +93,18 @@ app.controller("mainCtrl", function ($scope) {
 });
 
 app.controller("signUpServiceCtrl", function ($scope, $http) {
+    $scope.errormessage = " ";
+
+    $scope.addNewUser = function (userDetails) {
+        if (userDetails.password1 != userDetails.password2) {
+            $scope.errormessage = "Пароли не совпадают";
+            document.getElementById('password').value = '';
+            document.getElementById('password2').value = '';
+        } else {
+            sendRequest();
+        }
+    };
+
     $scope.sendRequest = function () {
         var email = document.getElementById('email').value;
         var login = document.getElementById('login').value;
@@ -128,6 +140,8 @@ app.controller("loginServiceCtrl", function ($scope, $http) {
         promise.then(fulfilled, rejected);
     };
 
+    $scope.addNewUser = function (userDetails) {};
+
     function fulfilled(response) {
         console.log("Status: " + response.status);
         $scope.items = response.data;
@@ -141,7 +155,7 @@ app.controller("loginServiceCtrl", function ($scope, $http) {
                 message: $scope.email
             });
         } else {
-            $scope.showAuthorization();
+            $scope.message = "Неверный email или пароль.";
         }
     }
 
@@ -166,8 +180,26 @@ app.controller("LoginSignupCtrl", function ($scope) {
 });
 
 app.controller("singleGameCtrl", function ($scope, $http) {
-    $scope.sendRequest = function () {
-        var theme = "theme";
+    $scope.sendRequest = function (id) {
+
+        var theme;
+
+        console.log(id);
+
+        switch (id) {
+            case 1:
+                theme = 'sport';
+                break;
+            case 2:
+                theme = 'art';
+                break;
+            case 3:
+                theme = 'music';
+                break;
+            case 4:
+                theme = 'nature';
+        }
+
         var promise = $http.post("http://localhost:8080/single/game", JSON.stringify({ 'theme': theme}));
         promise.then(fulfilled, rejected);
 

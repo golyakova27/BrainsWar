@@ -2,35 +2,43 @@ package com.golyakova.brainwar.controller;
 
 import com.golyakova.brainwar.domain.dto.request.CollaborativeGameRqDTO;
 import com.golyakova.brainwar.domain.dto.request.LoginRqDTO;
+import com.golyakova.brainwar.domain.dto.request.SingleGameRqDTO;
 import com.golyakova.brainwar.domain.dto.response.LoginRspDTO;
 import com.golyakova.brainwar.domain.dto.response.QuestionListRspDTO;
-import com.golyakova.brainwar.models.User;
 import com.golyakova.brainwar.services.QuestionService;
 import com.golyakova.brainwar.services.QuestionServiceImpl;
-import com.golyakova.brainwar.services.UserService;
-import com.golyakova.brainwar.services.UserServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import javafx.util.Pair;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
-public class GameController {
+public class MultiplayerGameController {
 
-    @Autowired
-    private SimpMessagingTemplate simpMessagingTemplate;
+    private List<String> usersForMultiplay = new ArrayList<>();
+    private List<Pair<String, String>> rooms = new ArrayList<>();
+
 
     @MessageMapping("/questions")
+    public void createRoom(CollaborativeGameRqDTO user, SingleGameRqDTO theme) throws Exception {
+
+        usersForMultiplay.add(user.getEmail());
+        int userCount = usersForMultiplay.size();
+        System.out.println(user.getEmail() + " " + user.getLogin());
+        if (userCount % 2 == 0 && userCount != 0) {
+            rooms.add(new Pair<String, String>(usersForMultiplay.get(userCount - 1),
+                                                usersForMultiplay.get(userCount - 2)));
+        }
+
+    }
+
     @SendTo("/topic/response")
-    public QuestionListRspDTO sendQuestions(CollaborativeGameRqDTO user) throws Exception {
+    public QuestionListRspDTO sendQuestions(SingleGameRqDTO theme) throws Exception {
 
         QuestionService questionService = new QuestionServiceImpl();
-        return new QuestionListRspDTO(questionService.getQuestions());
+        return new QuestionListRspDTO(questionService.getQuestions(theme.getTheme()));
 
     }
 
@@ -43,9 +51,4 @@ public class GameController {
         return response;
     }
 
-    //вот это каждую секунду стучит к клиенту
-    @Scheduled(fixedDelay = 1000)
-    private void bgColor(){
-        simpMessagingTemplate.convertAndSend("/topic/response", new LoginRspDTO());
-    }
 }

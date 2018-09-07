@@ -1,7 +1,6 @@
 package com.golyakova.brainwar.controller;
 
 import com.golyakova.brainwar.domain.dto.request.GameRqDTO;
-import com.golyakova.brainwar.domain.dto.request.LoginRqDTO;
 import com.golyakova.brainwar.domain.dto.request.SingleGameRqDTO;
 import com.golyakova.brainwar.domain.dto.response.LoginRspDTO;
 import com.golyakova.brainwar.domain.dto.response.QuestionListRspDTO;
@@ -22,7 +21,8 @@ public class SingleGameController {
     public @ResponseBody
     ResponseEntity<QuestionListRspDTO> getQuestions(@RequestBody SingleGameRqDTO theme) {
         QuestionService questionService = new QuestionServiceImpl();
-        QuestionListRspDTO response = new QuestionListRspDTO(questionService.getQuestions());
+        QuestionListRspDTO response = new QuestionListRspDTO(questionService.getQuestions(theme.getTheme()));
+        System.out.println(theme.getTheme());
 
         return new ResponseEntity<>(
                 response,

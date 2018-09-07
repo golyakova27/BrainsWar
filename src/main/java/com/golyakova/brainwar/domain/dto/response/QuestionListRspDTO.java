@@ -1,26 +1,27 @@
 package com.golyakova.brainwar.domain.dto.response;
 
+import com.golyakova.brainwar.models.IQuestion;
 import com.golyakova.brainwar.models.Question;
 
 import java.io.Serializable;
 import java.util.List;
 
 public class QuestionListRspDTO implements Serializable{
-    private List<Question> questions;
+    private List<IQuestion> questions;
 
     public QuestionListRspDTO() {
 
     }
 
-    public QuestionListRspDTO(List<Question> questions) {
+    public QuestionListRspDTO(List<IQuestion> questions) {
         this.questions = questions;
     }
 
-    public List<Question> getQuestions() {
+    public List<IQuestion> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<Question> questions) {
+    public void setQuestions(List<IQuestion> questions) {
         this.questions = questions;
     }
 }

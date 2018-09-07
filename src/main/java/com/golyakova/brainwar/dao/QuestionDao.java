@@ -1,5 +1,6 @@
 package com.golyakova.brainwar.dao;
 
+import com.golyakova.brainwar.models.IQuestion;
 import com.golyakova.brainwar.models.Question;
 
 import java.util.List;
@@ -9,5 +10,5 @@ import java.util.List;
  *  findById() - находим вопрос по его id в БД*/
 
 public interface QuestionDao {
-    List<Question> getQuestionList();
+    List<IQuestion> getQuestionList(String theme);
 }

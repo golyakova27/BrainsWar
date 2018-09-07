@@ -1,5 +1,5 @@
 ﻿<div class="panel" style="width:300px" ng-controller="signUpServiceCtrl">
-    <form name="myForm">
+    <form name="myForm" novalidate ng-submit="addNewUser(newUser)">
         <div class="well">
 
             <h3 class="textCenterForm">Регистрация:</h3>
@@ -7,29 +7,30 @@
             <div class="form-group">
 
                 <label class="textForm">Email:</label>
-                <input id="email" name="userEmail" type="email" class="form-control">
+                <input id="email" name="userEmail" type="email" class="form-control" required ng-model="newUser.email">
 
             </div>
 
             <div class="form-group">
                 <label class="textForm">Ник:</label>
-                <input id="login" name="userName" type="text" class="form-control">
+                <input id="login" name="userName" type="text" class="form-control" required ng-model="newUser.nickname">
             </div>
 
             <div class="form-group">
                 <label class="textForm">Пароль:</label>
-                <input type="password" class="form-control">
+                <input id="password2" type="password" name="userPassword1" class="form-control" required ng-model="newUser.password1">
             </div>
 
             <div class="form-group">
                 <label class="textForm">Повторите пароль:</label>
-                <input id="password" type="password" class="form-control">
+                <input id="password" name="userPassword2" type="password" class="form-control" required ng-model="newUser.password2">
             </div>
+            <div class="error">{{errormessage}}</div>
 
-            <button type="submit" ng-click="sendRequest()" class="btn btn-primary btn-block">
+            <button type="submit" class="btn btn-primary btn-block" ng-disabled="myForm.$invalid">
                 Зарегестрироваться
             </button>
-            <a>{{message}}</a>
+            <a class="upmarg textCenter">{{message}}</a>
         </div>
     </form>
 </div>

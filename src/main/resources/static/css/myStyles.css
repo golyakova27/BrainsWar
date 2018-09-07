@@ -109,3 +109,16 @@ body {
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+.upmarg {
+    margin-top: 10px;
+}
+
+form .ng-pristine {
+    border: 1px dotted gray;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
